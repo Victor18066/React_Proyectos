@@ -1,7 +1,7 @@
 {
   "name": "pruebareact",
   "version": "0.1.0",
-  "homepage": "https://victor18066.github.io/pruebaReact",
+  "homepage": "https://victor18066.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
