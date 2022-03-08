@@ -1,31 +1,25 @@
-import './App.css';
-import React, {useState, useEffect} from 'react';
-import getGifs from './services/getGifs';
+import './App.css'
+import React, {useState} from 'react'
+//import Gif from './components/Gif'
+import ListOfGifs from './components/ListOfGifs'
+import { Link, Route } from "wouter"
 
-const GIFS = ['https://media3.giphy.com/media/SP6nsoM3MgLFS/200w.webp?cid=ecf05e47y1f4bg8b6og9suwdta8ohd21sga76xbzwrmnvcbk&rid=200w.webp&ct=g',
-              'https://media4.giphy.com/media/WRriRIfVO0cRW/giphy.webp?cid=ecf05e47y1f4bg8b6og9suwdta8ohd21sga76xbzwrmnvcbk&rid=giphy.webp&ct=g']
-
-const DIF_GIFS = ['https://media2.giphy.com/media/Hs6f36KUBjWww/200w.webp?cid=ecf05e47y1f4bg8b6og9suwdta8ohd21sga76xbzwrmnvcbk&rid=200w.webp&ct=g']
-
-function App() {
-  const [gifs, setGifs]= useState(GIFS);
-
-  useEffect(function () {
-    //setGifs(DIF_GIFS)
-    getGifs().then(gifs => setGifs(gifs))
-  }, [])
-
+export default function App() {
   return (
     <div className="App">
       <section className="App-content">
-        { gifs.map(singleGif => <img src={singleGif} />) }
-        <button onClick={() => setGifs(DIF_GIFS)}>Cambiar gifs</button> 
+        <Link to='/gif/panda'>Gifs de pandas </Link>
+        <Link to='/gif/mono'>Gifs de monos </Link>
+        <Link to='/gif/mapache'>Gifs de mapaches </Link>
+        <Route path='/gif/:keyword' component={ListOfGifs} />
       </section>
     </div>
-  );
+  )
 }
 
-export default App;
+
+
+
 
 
 
