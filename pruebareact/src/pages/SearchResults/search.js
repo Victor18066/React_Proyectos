@@ -1,5 +1,5 @@
-import { useGifs } from "../../hooks/useGifs";
-import ListOfGifs from "../../components/ListOfGifs";
+import { useGifs } from "hooks/useGifs";
+import ListOfGifs from "components/ListOfGifs/ListOfGifs";
 
 export default function SearchResults({params}) {
 
@@ -10,7 +10,10 @@ export default function SearchResults({params}) {
     return <>
         {loading
             ? "Cargando..."
-            : <ListOfGifs gifs={gifs} />
+            : <> 
+                <h3 className="App-title">{decodeURI(keyword)}</h3>
+                <ListOfGifs gifs={gifs} />
+            </>
         }
     </>
 
